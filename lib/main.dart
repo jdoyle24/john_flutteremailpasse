@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutteremailpasse/login_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
+  ///
 }
 
 class MyApp extends StatelessWidget {
