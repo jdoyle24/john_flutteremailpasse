@@ -18,14 +18,30 @@ class _LoginPageState extends State<LoginPage> {
   final passwordController = TextEditingController();
 
   //methode pour se connecter
-  void signUserIn()
-  async
-  {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailController.text,
-      password: passwordController.text);
-
+  void signUserIn() async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text);
+    } on FirebaseAuthException catch (e) {
+      showErrorMessage(e.code);
+    }
   }
+    void showErrorMessage(String message)
+    {
+     showDialog(
+         context: context,
+         builder: (context){
+           return AlertDialog(
+             backgroundColor: Colors.green,
+             title: Center(
+               child: Text(message,
+               style: TextStyle(color: Colors.white),
+               ),
+             ),
+           );
+        });
+    }
+
 
   @override
   Widget build(BuildContext context) {
