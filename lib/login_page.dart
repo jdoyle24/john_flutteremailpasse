@@ -5,7 +5,8 @@ import 'my_button.dart';
 import 'squarebutton.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  final Function()? onTap;
+    LoginPage({super.key, required this.onTap});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -169,7 +170,7 @@ class _LoginPageState extends State<LoginPage> {
                       width: 4,
                     ),
                     GestureDetector(
-                      onTap: (){},
+                      onTap: widget.onTap,
                       child: Text(
                         'S\'enregistrer',
                         style: TextStyle(
