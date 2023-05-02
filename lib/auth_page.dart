@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'login_page.dart';
+import 'login_register.dart';
 import 'home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -20,7 +20,7 @@ class AuthPage extends StatelessWidget {
           }
           else //user not connected
             {
-            return LoginPage( );
+            return LoginRegister( );
           }
           },
       ),

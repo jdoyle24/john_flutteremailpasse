@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'auth_service.dart';
 
 class SquareTile extends StatelessWidget {
   final String imagePath;
@@ -9,7 +10,7 @@ class SquareTile extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return GestureDetector(
-      onTap: onTap,
+      onTap: ()=> AuthService().signInWithGoogle(),
       child: Container(
         padding: EdgeInsets.all(20),
         decoration: BoxDecoration(border: Border.all(color: Colors.white),
